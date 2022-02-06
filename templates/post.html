@@ -26,7 +26,7 @@
 				</li>
 			</ul>
 			<ul class="navbar-nav">
-				<li class="nav-item">
+				<li class="nav-item">	
 					<a class="nav-link" href="{{url_for("post_page")}}">Post</a>
 				</li>
 			</ul>
@@ -34,28 +34,46 @@
 	  </nav>
 	
 	<div class = "center">
-		<h1><u>Posts</u></h1>
+		<h1><u>Make a post</u></h1>
 	</div>
 	
-	<div class = "center">
-		<div class = "header_container">
-			<p>Something that i used to know about someone that i used to know</p>
+		<form action="/home" method = "post">
+		
+		<div class="row">
+			<div class="col-25">
+				<label>Name</label>
+			</div>
+			
+			<div class="col-75">
+				<input type="text" name = "name" placeholder="Your name(maximum of 100 characters)..." size = "50" maxlength = "100" required>
+			</div>
 		</div>
-	</div>
 
-	<div class = "center">
-		<div class = "info_container">
-			<p>Something</p>
+
+		<div class="row">
+			<div class="col-25">
+				<label>Title</label>
+			</div>
+			
+			<div class="col-75">
+				<input type="text" title = "title" placeholder="Title(maximum length of 100 characters)..." size = "50" maxlength = "100" required>
+			</div>
+		
 		</div>
-	</div>
 
-	<div class = "center">
-		<div class = "footer_container">
-			<p>Something</p>
+		<div class="row">
+			<div class="col-25">
+				<label for="subject">Text</label>
+			</div>
+			<div class="col-75">
+				<textarea id="subject" name="text" placeholder="Write something (maximum length of 5000 characters)..." style="width: 600px; height:300px" maxlength="5000" required></textarea>
+			</div>
 		</div>
-	</div>
-
-
+		
+		<div class="row">
+			<input type="submit" value="Submit">
+		</div>
+		</form>
     <!-- Optional JavaScript; choose one of the two! -->
 	
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
