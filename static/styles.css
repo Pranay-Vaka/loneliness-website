@@ -6,8 +6,6 @@
 .header_container {
 	overflow-x: auto;
 	overflow-y: auto;
-	display: flex;
-	justify-content: center;
 	width: 1200px;
 	background: #343a40;
 	padding: 20px;
@@ -25,16 +23,29 @@
 }
 
 
-.footer_container {
+.comments_container {
 	overflow-x: auto;
 	overflow-y: auto;
-	display: flex;
-	justify-content: center;
 	width: 1200px;
+	height: 400px;
 	background: #343a40;
+	padding: 20px;
+}
+
+.comments_input_container {
+	overflow-x: auto;
+	overflow-y: auto;
+	width: 1200px;
+	background: #6c757d;
 	padding: 20px;
 	border-bottom-left-radius: 10px;	
 	border-bottom-right-radius: 10px;
+}
+
+.hr_tag {
+	width:100%; 
+	background:#6c757d; 
+	height: 1.2px;
 }
 
 * {

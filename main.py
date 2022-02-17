@@ -79,7 +79,6 @@ def get_post_by_id(post_id):
 
     return result
 
-
 def get_comment_by_id(comment_id):
     
     result = {}
@@ -90,6 +89,9 @@ def get_comment_by_id(comment_id):
             result = {"name": i.name, "post_id": i.post_id, "comment_id": i.comment_id, "date_time": i.date_time, "text": i.text}
 
     return result
+
+def return_all_posts():
+    pass
 
 @app.route("/")
 @app.route("/home")
