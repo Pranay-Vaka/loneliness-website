@@ -37,50 +37,51 @@
 		<h1><u>Posts</u></h1>
 	</div>
 	
-	<div class = "center">
-		<div class = "header_container">
-			<h4>This is the title of the post</h4>
-			<p><b>by Pranay Vaka</b></p>
-		</div>
-	</div>
 	
-	<div class = "center">
-		<div class = "info_container">
-			<p>Something</p>	
-		</div>
-	</div>
+	{% for i in posts %}
+
+	<div style = "margin: 100px">
+        <div class = "center">
+            <div class = "header_container">
+				<h2>{{i["post_object"].title}}</h2>
+				<p><b>by {{i["post_object"].name}} at {{i["post_object"].date_time}}</b></p>
+            </div>
+        </div>
+        
+        <div class = "center">
+            <div class = "info_container">
+				<p>{{i["post_object"].text}}</p>	
+            </div>
+        </div>
 
 
-	<div class = "center">
-		<div class = "comments_container">
-			<h2>Comments</h2>
-			<hr class = "hr_tag">
-			<p><b>This is the name of the person that has commented</b></p>
-			<p>This is a comment</p>
-		</div>
-	</div>
-
-	<div class = "center">
-		<div class = "comments_input_container">
-		
-			<div class = "row">
-				<div class="col-25">
-					<label>Name</label>
-				</div>
+        <div class = "center">
+            <div class = "comments_container">
+                <h2>Comments</h2>
+				{% for j in i["comment_objects"] %}
+                <hr class = "hr_tag">
+				<p><b>{{j.name}} at {{j.date_time}}</b></p>
+				<p>{{j.text}}</p>
+				{% endfor %}
+            </div>
+        </div>
 				
-				<div class="col-75">
-					<input type="text" name = "name" placeholder="Your name(maximum of 100 characters)..." size = "50" maxlength = "100" required>
-				</div>
-			</div>
-
-			<div class = "row">
-				<div class="col-75">
-					<textarea id="subject" name="text" placeholder="Write something (maximum length of 2500 characters)..." style="width: 600px; height:200px" maxlength="2500" required></textarea>
-				</div>
-
-		</div>
+        <div class = "center">
+            <div class = "comments_input_container">
+                    
+                <h2>Write your own comment</h2>
+                <hr class = "hr_tag">
+                
+                <input type="text" name = "name" placeholder="Your name(maximum of 100 characters)..." size = "50" maxlength = "100" required>
+                
+                <textarea id="subject" name="text" placeholder="Write something (maximum length of 2500 characters)..." style="height:200px" maxlength="2500" required></textarea>
+                
+                <input type = "submit" value="Comment">
+            </div>	
+        </div>
 	</div>
 
+    {% endfor %}
 	<!-- Optional JavaScript; choose one of the two! -->
 	
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->

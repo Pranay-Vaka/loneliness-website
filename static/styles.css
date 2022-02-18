@@ -66,19 +66,18 @@ label {
 }
 
 input[type=submit] {
-	position: relative;
-	top: 30px;
-	left: 700px;
+	display: flex;
+	justify-content: center;
 	background-color: #343a40;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
 }
 
 input[type=submit]:hover {
-  background-color: #6c757d;
+  background-color: #A2ADBE;
 }
 
 .container {

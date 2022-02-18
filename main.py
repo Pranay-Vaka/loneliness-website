@@ -1,6 +1,6 @@
 import unique_id
 import datetime
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -68,49 +68,41 @@ def get_unique_id(post_type):
         if run:
             return result_id
     
-def get_post_by_id(post_id):
+
+def get_comment_by_id(post_id):
     
-    result = {}
-
-    for i in Posts.query.all():
-        
-        if i.post_id == post_id:
-            result = {"name": i.name, "post_id": i.post_id, "date_time": i.date_time, "title": i.title, "text": i.text}
-
-    return result
-
-def get_comment_by_id(comment_id):
-    
-    result = {}
+    result = []
 
     for i in Comments.query.all():
         
-        if i.comment_id == comment_id:
-            result = {"name": i.name, "post_id": i.post_id, "comment_id": i.comment_id, "date_time": i.date_time, "text": i.text}
+        if i.post_id == post_id:
+            result.append(i)
 
     return result
 
 def return_all_posts():
-    pass
+    
+    final_list = []
+
+    for i in Posts.query.all():
+        final_list.append({"post_object": i, "comment_objects": get_comment_by_id(i.post_id)})
+    
+    return final_list
 
 @app.route("/")
 @app.route("/home")
 def home_page():
-    return render_template("home.html") 
+    return render_template("home.html", posts = return_all_posts()) 
 
 
 @app.route("/about")
 def about_page():
     return render_template("about_us.html")
 
-@app.route("/post", methods = ["POST", "GET"])
+@app.route("/post", methods = ["GET", "POST"])
 def post_page():
-    
     if request.method == "POST":
-        name = request.form["name"]
-        title = request.form["title"]
-        text = request.form["text"]
-
+        return redirect(url_for("home_page"))
     else:
         return render_template("post.html")
 
