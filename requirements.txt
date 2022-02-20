@@ -1,5 +1,4 @@
 alabaster==0.7.12
-anaconda-clean @ file:///opt/concourse/worker/volumes/live/f737694e-9e17-4744-6eeb-ed38d767ec0b/volume/anaconda-clean_1614068811903/work
 anaconda-client==1.7.2
 anaconda-navigator==1.10.0
 anaconda-project==0.8.3
