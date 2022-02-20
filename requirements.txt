@@ -249,7 +249,6 @@ QDarkStyle==2.8.1
 QtPy==1.9.0
 readchar==2.0.1
 readme-renderer==29.0
-requests @ file:///tmp/build/80754af9/requests_1592841827918/work
 requests-toolbelt==0.9.1
 rfc3986==1.5.0
 rsa==4.7.2
